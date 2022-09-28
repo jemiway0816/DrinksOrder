@@ -9,6 +9,8 @@ import UIKit
 
 class OrderListTableViewController: UITableViewController {
 
+    var apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
+    
     var orders = [Order]()
     
     let cupSize:[String] = ["中杯","大杯"]
@@ -29,7 +31,7 @@ class OrderListTableViewController: UITableViewController {
     
     func fetch() {
         
-        let url = URL(string: "https://sheetdb.io/api/v1/o8bn2eh4kry27?cast_numbers=cupSize,sugar,ice,pearl")!
+        let url = URL(string: "\(apiKey)?cast_numbers=cupSize,sugar,ice,pearl")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -42,8 +44,6 @@ class OrderListTableViewController: UITableViewController {
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
                     self.orders = try decoder.decode([Order].self, from: data)
                     
-                    print(self.orders)
-                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -54,19 +54,16 @@ class OrderListTableViewController: UITableViewController {
             } else {
                 print("no data ")
             }
-                
         }.resume()
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return orders.count
     }
     
@@ -91,23 +88,16 @@ class OrderListTableViewController: UITableViewController {
         return cell
     }
     
-
-//    trailingSwipeActionsConfigurationForRowAt
-    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         //產生第一個按鈕
         let buttonDelete = UIContextualAction(style: .normal, title: "刪除") { action, view, complete
             in
             print("刪除按鈕被按下！")
-            
-            //Step2.刪除資料集的資料
-            
-//        https://sheetdb.io/api/v1/o8bn2eh4kry27/orderName/gifs
-//            self.arrTable.remove(at: indexPath.row)
             let order = self.orders[indexPath.row]
-            let urlStr = "https://sheetdb.io/api/v1/o8bn2eh4kry27/orderName/\(order.orderName)"
+            
+            let urlStr = "\(self.apiKey)/orderName/\(order.orderName)"
+            
             if let url = URL(string: urlStr) {
-                
                 var request = URLRequest(url: url)
                 request.httpMethod = "delete"
                 
@@ -123,8 +113,6 @@ class OrderListTableViewController: UITableViewController {
                     }
                 }.resume()
             }
-           
-//            self.tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         buttonDelete.backgroundColor = .systemRed

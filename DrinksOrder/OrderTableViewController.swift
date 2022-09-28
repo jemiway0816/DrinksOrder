@@ -9,6 +9,8 @@ import UIKit
 
 class OrderTableViewController: UITableViewController {
 
+    let apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
+    
     var drink:DrinkItem!
     
     @IBOutlet var nameLabel: UILabel!
@@ -28,10 +30,9 @@ class OrderTableViewController: UITableViewController {
         super.viewDidLoad()
 
         nameLabel.text = drink.drinkName
-        priceLabel.text = "中：\(drink.priceMiddle) / 大：\(drink.priceBig)"
+        priceLabel.text = "中 : \(drink.priceMiddle)  /  大 : \(drink.priceBig)"
         descriLabel.text = drink.decription
         picImageView.image = UIImage(named: drink.picture)
-        
     }
 
     @IBAction func doneButton(_ sender: Any) {
@@ -45,7 +46,7 @@ class OrderTableViewController: UITableViewController {
         let today = Date()
         let order = Order(orderName: name, drinkName: drink, cupSize: cupSize, sugar: sugar, ice: ice, pearl: pearl ,orderTime:today)
         
-        let url = URL(string: "https://sheetdb.io/api/v1/o8bn2eh4kry27")!
+        let url = URL(string: "\(apiKey)")!
         var request = URLRequest(url: url)
         request.httpMethod = "post"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

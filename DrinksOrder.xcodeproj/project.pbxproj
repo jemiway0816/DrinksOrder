@@ -19,7 +19,6 @@
 		DA75904A28E3D48D00A44BFE /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75904928E3D48D00A44BFE /* DrinkTableViewCell.swift */; };
 		DA75904E28E3EBA500A44BFE /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75904D28E3EBA500A44BFE /* Order.swift */; };
 		DA75905028E3EDA800A44BFE /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75904F28E3EDA800A44BFE /* OrderTableViewCell.swift */; };
-		DA75905228E40F1200A44BFE /* OrderEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75905128E40F1200A44BFE /* OrderEncode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		DA75904928E3D48D00A44BFE /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
 		DA75904D28E3EBA500A44BFE /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		DA75904F28E3EDA800A44BFE /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
-		DA75905128E40F1200A44BFE /* OrderEncode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEncode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +77,6 @@
 				DA75904F28E3EDA800A44BFE /* OrderTableViewCell.swift */,
 				DA75904128E3D0A900A44BFE /* Drinks.swift */,
 				DA75904D28E3EBA500A44BFE /* Order.swift */,
-				DA75905128E40F1200A44BFE /* OrderEncode.swift */,
 				DA75903328E3CD5C00A44BFE /* Main.storyboard */,
 				DA75903628E3CD5D00A44BFE /* Assets.xcassets */,
 				DA75903828E3CD5D00A44BFE /* LaunchScreen.storyboard */,
@@ -165,7 +162,6 @@
 				DA75902E28E3CD5C00A44BFE /* AppDelegate.swift in Sources */,
 				DA75904228E3D0A900A44BFE /* Drinks.swift in Sources */,
 				DA75904628E3D2F600A44BFE /* OrderTableViewController.swift in Sources */,
-				DA75905228E40F1200A44BFE /* OrderEncode.swift in Sources */,
 				DA75905028E3EDA800A44BFE /* OrderTableViewCell.swift in Sources */,
 				DA75904A28E3D48D00A44BFE /* DrinkTableViewCell.swift in Sources */,
 				DA75903028E3CD5C00A44BFE /* SceneDelegate.swift in Sources */,

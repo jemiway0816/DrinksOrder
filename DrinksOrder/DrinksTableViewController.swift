@@ -30,18 +30,9 @@ class DrinksTableViewController: UITableViewController {
         DrinkItem(drinkName: "胭脂多多", priceMiddle: 45, priceBig: 55, decription: "蜜桃裡的兒時記憶",picture: "RedTea_17")
     ]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    
     
     @IBSegueAction func showOrder(_ coder: NSCoder) -> OrderTableViewController? {
         
@@ -58,23 +49,20 @@ class DrinksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return Drinks.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(DrinkTableViewCell.self)", for: indexPath) as! DrinkTableViewCell
 
         let drink = Drinks[indexPath.row]
         
         cell.nameLabel.text = drink.drinkName
-        cell.priceLabel.text = "中：\(drink.priceMiddle) / 大：\(drink.priceBig)"
+        cell.priceLabel.text = "中 : \(drink.priceMiddle)  /  大 : \(drink.priceBig)"
         cell.decriptLabel.text = drink.decription
         cell.picImageView.image = UIImage(named: drink.picture)
         
