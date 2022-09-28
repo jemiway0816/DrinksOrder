@@ -75,6 +75,8 @@ class OrderListTableViewController: UITableViewController {
 
         let order = orders[indexPath.row]
         
+        cell.idLabel.text = String(indexPath.row+1)
+        
         cell.orderNameLabel.text = order.orderName
         cell.drinkNameLabel.text = order.drinkName
         

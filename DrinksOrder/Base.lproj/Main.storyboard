@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Drinks Table View Controller-->
+        <!--可不可飲料訂單系統-->
         <scene sceneID="RNG-E1-OdF">
             <objects>
                 <tableViewController id="xNC-ql-gly" customClass="DrinksTableViewController" customModule="DrinksOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Cj7-by-8KJ"/>
+                    <navigationItem key="navigationItem" title="可不可飲料訂單系統" id="Cj7-by-8KJ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWq-gj-h4L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -244,11 +244,11 @@
             </objects>
             <point key="canvasLocation" x="3278.4615384615386" y="40.521327014218009"/>
         </scene>
-        <!--Item-->
+        <!--飲料-->
         <scene sceneID="Fl4-qq-CO5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iau-Sb-yvi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="e0t-VA-9rN"/>
+                    <tabBarItem key="tabBarItem" title="飲料" image="bag.fill.badge.questionmark" catalog="system" id="e0t-VA-9rN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yf9-k0-3IY">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -263,7 +263,7 @@
             </objects>
             <point key="canvasLocation" x="1409.2307692307693" y="40.521327014218009"/>
         </scene>
-        <!--Item-->
+        <!--訂單-->
         <scene sceneID="0e2-1v-cSA">
             <objects>
                 <tableViewController id="yo6-me-3Qh" customClass="OrderListTableViewController" customModule="DrinksOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -280,14 +280,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-tj-1Zp">
-                                            <rect key="frame" x="20" y="17" width="98" height="24"/>
+                                            <rect key="frame" x="56" y="16" width="96" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNO-ke-Rvd">
-                                            <rect key="frame" x="126" y="17" width="161" height="24"/>
+                                            <rect key="frame" x="160" y="17" width="127" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -295,6 +295,13 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmR-JX-UWm">
                                             <rect key="frame" x="20" y="56" width="80" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTZ-am-fMp">
+                                            <rect key="frame" x="211" y="56" width="154" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -314,11 +321,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTZ-am-fMp">
-                                            <rect key="frame" x="211" y="56" width="154" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeU-vP-Cwh">
+                                            <rect key="frame" x="13" y="16" width="35" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" systemColor="systemIndigoColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -327,6 +334,7 @@
                                     <outlet property="cupSizeLabel" destination="uef-pz-oYc" id="HQe-ad-9OF"/>
                                     <outlet property="dateLabel" destination="LTZ-am-fMp" id="VFd-g8-GfY"/>
                                     <outlet property="drinkNameLabel" destination="yNO-ke-Rvd" id="FuC-Gl-Czh"/>
+                                    <outlet property="idLabel" destination="SeU-vP-Cwh" id="Mti-eF-9J8"/>
                                     <outlet property="orderNameLabel" destination="Z5X-tj-1Zp" id="Uuv-QV-iSd"/>
                                     <outlet property="pearlLabel" destination="raI-U7-E8l" id="reI-Kb-Flk"/>
                                     <outlet property="sugarLabel" destination="NmR-JX-UWm" id="y46-2N-vKP"/>
@@ -338,7 +346,7 @@
                             <outlet property="delegate" destination="yo6-me-3Qh" id="Kar-mY-Ph7"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="j9i-YZ-beg"/>
+                    <tabBarItem key="tabBarItem" title="訂單" image="character.bubble.fill" catalog="system" id="j9i-YZ-beg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeT-XW-zwP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -364,8 +372,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bag.fill.badge.questionmark" catalog="system" width="128" height="125"/>
+        <image name="character.bubble.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
