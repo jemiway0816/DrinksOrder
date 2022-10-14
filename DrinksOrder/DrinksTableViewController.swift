@@ -30,6 +30,10 @@ class DrinksTableViewController: UITableViewController {
         DrinkItem(drinkName: "胭脂多多", priceMiddle: 45, priceBig: 55, decription: "蜜桃裡的兒時記憶",picture: "RedTea_17")
     ]
     
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
