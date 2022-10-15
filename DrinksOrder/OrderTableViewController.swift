@@ -27,6 +27,8 @@ class OrderTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        picImageView.layer.cornerRadius = 10
+        
         nameLabel.text = drink.drinkName
         priceLabel.text = "NT$\(drink.priceMiddle)"
         descriLabel.text = drink.description

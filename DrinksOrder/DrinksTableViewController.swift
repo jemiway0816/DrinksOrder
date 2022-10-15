@@ -21,8 +21,8 @@ class DrinksTableViewController: UITableViewController {
             DrinkItem(drinkName: "香柚雷夢綠", priceMiddle: 69, priceBig: 69, description: "以翡翠綠茶為基底，搭配上韓國柚子蜜與新鮮檸檬後再加入些許蘆薈。柚子果肉、檸檬、蘆薈的完美比例，多層次口感讓你一杯接一杯。",picture: "Tea_08",shortDescription:"翡翠綠茶+柚子果肉+檸檬+蘆薈")
         ],
         [
+            DrinkItem(drinkName: "龍眼紅烏", priceMiddle: 89, priceBig: 89, description: "",picture: "Tea_09",shortDescription:""),
             DrinkItem(drinkName: "四季春青茶", priceMiddle: 35, priceBig: 35, description: "",picture: "Tea_09",shortDescription:""),
-            DrinkItem(drinkName: "紅水烏龍", priceMiddle: 40, priceBig: 40, description: "",picture: "Tea_09",shortDescription:""),
             DrinkItem(drinkName: "老欉鐵觀音", priceMiddle: 35, priceBig: 35, description: "",picture: "Tea_09",shortDescription:""),
             DrinkItem(drinkName: "極品紅茶", priceMiddle: 30, priceBig: 30, description: "",picture: "Tea_09",shortDescription:""),
             DrinkItem(drinkName: "三韻紅萱", priceMiddle: 40, priceBig: 40, description: "",picture: "Tea_09",shortDescription:""),
@@ -32,8 +32,6 @@ class DrinksTableViewController: UITableViewController {
             DrinkItem(drinkName: "蜂蜜四季春", priceMiddle: 50, priceBig: 50, description: "",picture: "Tea_09",shortDescription:"")
         ],
         [
-            DrinkItem(drinkName: "冬瓜鮮乳", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_10",shortDescription:""),
-            DrinkItem(drinkName: "紅烏鮮乳", priceMiddle: 69, priceBig: 69, description: "",picture: "Tea_10",shortDescription:""),
             DrinkItem(drinkName: "小農鮮乳茶(紅茶)", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_10",shortDescription:""),
             DrinkItem(drinkName: "小農鮮乳茶(翡翠)", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_10",shortDescription:""),
             DrinkItem(drinkName: "小農鮮乳茶(鐵觀音)", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_10",shortDescription:""),
@@ -41,7 +39,6 @@ class DrinksTableViewController: UITableViewController {
             DrinkItem(drinkName: "巧克鮮乳茶", priceMiddle: 69, priceBig: 69, description: "",picture: "Tea_10",shortDescription:"")
         ],
         [
-            DrinkItem(drinkName: "秀水旺梨春", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_11",shortDescription:""),
             DrinkItem(drinkName: "阿源楊桃(紅茶)", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_11",shortDescription:""),
             DrinkItem(drinkName: "阿源楊桃(翡翠)", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_11",shortDescription:""),
             DrinkItem(drinkName: "楊桃雷夢", priceMiddle: 60, priceBig: 60, description: "",picture: "Tea_11",shortDescription:""),
@@ -56,33 +53,26 @@ class DrinksTableViewController: UITableViewController {
             DrinkItem(drinkName: "極品奶茶(鐵觀音)", priceMiddle: 50, priceBig: 50, description: "",picture: "Tea_11",shortDescription:"")
         ],
         [
-            DrinkItem(drinkName: "秀水旺梨春", priceMiddle: 75, priceBig: 75, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "金桔拜觀音", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "鮮果百香(紅茶)", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "鮮果百香(翡翠)", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_12",shortDescription:""),
-            DrinkItem(drinkName: "翡翠雷夢", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_12",shortDescription:""),
-            DrinkItem(drinkName: "香柚雷夢綠", priceMiddle: 69, priceBig: 69, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "蜂蜜雷夢", priceMiddle: 60, priceBig: 60, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "雷夢蘆薈蜜", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "柳丁翡翠", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "紫葡蘆薈春", priceMiddle: 69, priceBig: 69, description: "",picture: "Tea_12",shortDescription:""),
             DrinkItem(drinkName: "玉荷包茶王", priceMiddle: 80, priceBig: 80, description: "",picture: "Tea_12",shortDescription:"")
-        ],
-        [
-            DrinkItem(drinkName: "黑木耳鮮乳", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "手作薑茶", priceMiddle: 45, priceBig: 45, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "桂圓紅棗茶", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "薑汁奶茶", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "薑汁雷夢", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "薑汁桂圓", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
-            DrinkItem(drinkName: "擂茶豆漿", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_13",shortDescription:"")
         ]
+        
+//        [
+//            DrinkItem(drinkName: "黑木耳鮮乳", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "手作薑茶", priceMiddle: 45, priceBig: 45, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "桂圓紅棗茶", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "薑汁奶茶", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "薑汁雷夢", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "薑汁桂圓", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
+//            DrinkItem(drinkName: "擂茶豆漿", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_13",shortDescription:"")
+//        ]
     ]
-
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +141,7 @@ class DrinksTableViewController: UITableViewController {
         cell.priceLabel.text = "NT$\(drink.priceMiddle)"
         cell.decriptLabel.text = drink.shortDescription
         cell.picImageView.image = UIImage(named: drink.picture)
+        cell.picImageView.layer.cornerRadius = 10
         
         switch indexPath.section {
         case 0:
