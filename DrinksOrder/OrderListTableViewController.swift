@@ -48,7 +48,8 @@ class OrderListTableViewController: UITableViewController {
                     }
                     
                 } catch {
-                    print(error)
+                    print("--------> \(error)")
+//                    print(error)
                 }
             } else {
                 print("no data ")
@@ -74,7 +75,11 @@ class OrderListTableViewController: UITableViewController {
         cell.orderNameLabel.text = order.orderName
         cell.drinkNameLabel.text = order.drinkName
         cell.sugarLabel.text = sugar[order.sugar]+ice[order.ice]
-        cell.pearlLabel.text = "加\(pearl[order.pearl])"
+        if order.pearl != 0 {
+            cell.pearlLabel.text = "加\(pearl[order.pearl])"
+        } else {
+            cell.pearlLabel.text = ""
+        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/M/d HH:mm"
@@ -90,7 +95,7 @@ class OrderListTableViewController: UITableViewController {
             print("刪除按鈕被按下！")
             let order = self.orders[indexPath.row]
             
-            let urlStr = "\(self.apiKey)/orderName/\(order.orderName)"
+            let urlStr = "\(self.apiKey)/uuid/\(order.uuid)"
             
             if let url = URL(string: urlStr) {
                 var request = URLRequest(url: url)

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Order: Codable {
-    
+    let uuid:String
     let orderName:String
     let drinkName:String
     let sugar: Int

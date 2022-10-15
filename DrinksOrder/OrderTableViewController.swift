@@ -35,14 +35,16 @@ class OrderTableViewController: UITableViewController {
 
     @IBAction func doneButton(_ sender: Any) {
         
+        let uuidStr = UUID().uuidString
         let name = orderName.text ?? ""
         let drink = nameLabel.text ?? ""
         let sugar = sugarSegCtl.selectedSegmentIndex
         let ice = iceSegCtl.selectedSegmentIndex
         let pearl = pearlSegCtl.selectedSegmentIndex
         let today = Date()
-        let order = Order(orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl ,orderTime:today)
         
+        let order = Order(uuid: uuidStr, orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl, orderTime: today)
+
         let url = URL(string: "\(apiKey)")!
         var request = URLRequest(url: url)
         request.httpMethod = "post"
