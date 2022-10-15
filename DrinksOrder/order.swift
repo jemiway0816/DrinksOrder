@@ -9,6 +9,7 @@ import Foundation
 
 struct Order: Codable {
     let uuid:String
+    let section:Int
     let orderName:String
     let drinkName:String
     let sugar: Int

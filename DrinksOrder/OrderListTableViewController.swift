@@ -30,7 +30,7 @@ class OrderListTableViewController: UITableViewController {
     
     func fetch() {
         
-        let url = URL(string: "\(apiKey)?cast_numbers=sugar,ice,pearl")!
+        let url = URL(string: "\(apiKey)?cast_numbers=section,sugar,ice,pearl")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -79,6 +79,23 @@ class OrderListTableViewController: UITableViewController {
             cell.pearlLabel.text = "加\(pearl[order.pearl])"
         } else {
             cell.pearlLabel.text = ""
+        }
+        
+        switch order.section {
+        case 0:
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
+        case 1:
+            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
+        case 2:
+            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
+        case 3:
+            cell.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
+        case 4:
+            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
+        case 5:
+            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
+        default:
+            break
         }
         
         let dateFormatter = DateFormatter()

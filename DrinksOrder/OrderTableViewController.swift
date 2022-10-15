@@ -17,12 +17,12 @@ class OrderTableViewController: UITableViewController {
     @IBOutlet var picImageView: UIImageView!
     @IBOutlet var descriLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
-    
     @IBOutlet var orderName: UITextField!
-    
     @IBOutlet var sugarSegCtl: UISegmentedControl!
     @IBOutlet var iceSegCtl: UISegmentedControl!
     @IBOutlet var pearlSegCtl: UISegmentedControl!
+    
+    var section = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class OrderTableViewController: UITableViewController {
         let pearl = pearlSegCtl.selectedSegmentIndex
         let today = Date()
         
-        let order = Order(uuid: uuidStr, orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl, orderTime: today)
+        let order = Order(uuid: uuidStr,section: self.section, orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl, orderTime: today)
 
         let url = URL(string: "\(apiKey)")!
         var request = URLRequest(url: url)

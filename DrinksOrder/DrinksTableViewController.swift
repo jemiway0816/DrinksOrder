@@ -118,6 +118,7 @@ class DrinksTableViewController: UITableViewController {
            let row = tableView.indexPathForSelectedRow?.row {
             
             controller?.drink = Drinks[section][row]
+            controller?.section = section
         }
         
         return controller
