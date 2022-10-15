@@ -11,7 +11,6 @@ struct Order: Codable {
     
     let orderName:String
     let drinkName:String
-    let cupSize: Int
     let sugar: Int
     let ice: Int
     let pearl: Int

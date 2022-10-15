@@ -13,10 +13,9 @@ class OrderListTableViewController: UITableViewController {
     
     var orders = [Order]()
     
-    let cupSize:[String] = ["中杯","大杯"]
-    let sugar:[String] = ["無糖","微糖","半糖","正常"]
-    let ice:[String] = ["去冰","少冰","正常"]
-    let pearl:[String] = ["不加珍珠","加珍珠"]
+    let sugar:[String] = ["正常糖","八分糖","半糖","三分糖","無糖"]
+    let ice:[String] = ["正常冰","少冰","去冰","熱","微冰"]
+    let pearl:[String] = ["無","珍珠","蘆薈","椰果"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class OrderListTableViewController: UITableViewController {
     
     func fetch() {
         
-        let url = URL(string: "\(apiKey)?cast_numbers=cupSize,sugar,ice,pearl")!
+        let url = URL(string: "\(apiKey)?cast_numbers=sugar,ice,pearl")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -71,15 +70,11 @@ class OrderListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(OrderTableViewCell.self)", for: indexPath) as! OrderTableViewCell
 
         let order = orders[indexPath.row]
-        
         cell.idLabel.text = String(indexPath.row+1)
-        
         cell.orderNameLabel.text = order.orderName
         cell.drinkNameLabel.text = order.drinkName
-        
-        cell.cupSizeLabel.text = cupSize[order.cupSize]
         cell.sugarLabel.text = sugar[order.sugar]+ice[order.ice]
-        cell.pearlLabel.text = pearl[order.pearl]
+        cell.pearlLabel.text = "加\(pearl[order.pearl])"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/M/d HH:mm"
@@ -89,7 +84,7 @@ class OrderListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //產生第一個按鈕
+
         let buttonDelete = UIContextualAction(style: .normal, title: "刪除") { action, view, complete
             in
             print("刪除按鈕被按下！")

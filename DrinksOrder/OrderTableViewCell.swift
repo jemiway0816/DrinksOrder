@@ -11,10 +11,7 @@ class OrderTableViewCell: UITableViewCell {
 
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var pearlLabel: UILabel!
-    
-    @IBOutlet var cupSizeLabel: UILabel!
     @IBOutlet var sugarLabel: UILabel!
-    
     @IBOutlet var idLabel: UILabel!
     @IBOutlet var drinkNameLabel: UILabel!
     @IBOutlet var orderNameLabel: UILabel!

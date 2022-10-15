@@ -20,18 +20,16 @@ class OrderTableViewController: UITableViewController {
     
     @IBOutlet var orderName: UITextField!
     
-    @IBOutlet var cupSizeSegCtl: UISegmentedControl!
     @IBOutlet var sugarSegCtl: UISegmentedControl!
     @IBOutlet var iceSegCtl: UISegmentedControl!
     @IBOutlet var pearlSegCtl: UISegmentedControl!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nameLabel.text = drink.drinkName
-        priceLabel.text = "中 : \(drink.priceMiddle)  /  大 : \(drink.priceBig)"
-        descriLabel.text = drink.decription
+        priceLabel.text = "NT$\(drink.priceMiddle)"
+        descriLabel.text = drink.description
         picImageView.image = UIImage(named: drink.picture)
     }
 
@@ -39,12 +37,11 @@ class OrderTableViewController: UITableViewController {
         
         let name = orderName.text ?? ""
         let drink = nameLabel.text ?? ""
-        let cupSize = cupSizeSegCtl.selectedSegmentIndex
         let sugar = sugarSegCtl.selectedSegmentIndex
         let ice = iceSegCtl.selectedSegmentIndex
         let pearl = pearlSegCtl.selectedSegmentIndex
         let today = Date()
-        let order = Order(orderName: name, drinkName: drink, cupSize: cupSize, sugar: sugar, ice: ice, pearl: pearl ,orderTime:today)
+        let order = Order(orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl ,orderTime:today)
         
         let url = URL(string: "\(apiKey)")!
         var request = URLRequest(url: url)
