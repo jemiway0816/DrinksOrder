@@ -13,7 +13,7 @@ class OrderListTableViewController: UITableViewController {
     
     var orders = [Order]()
     
-    let sugar:[String] = ["正常糖","八分糖","半糖","三分糖","無糖"]
+    let sugar:[String] = ["正常糖","八分糖","半糖","三分糖","一分糖","無糖"]
     let ice:[String] = ["正常冰","少冰","去冰","熱","微冰"]
     let pearl:[String] = ["無","珍珠","蘆薈","椰果"]
     
