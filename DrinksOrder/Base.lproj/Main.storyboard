@@ -19,9 +19,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-4a-Bvi">
-                                    <rect key="frame" x="8" y="0.0" width="374" height="45"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-4a-Bvi">
+                                    <rect key="frame" x="8" y="10" width="374" height="45"/>
                                     <segments>
                                         <segment title="極品推薦"/>
                                         <segment title="醇萃系列"/>
@@ -35,6 +34,12 @@
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="bkr-4a-Bvi" firstAttribute="leading" secondItem="UGg-Jb-9W1" secondAttribute="leading" constant="8" id="CrP-Up-sZe"/>
+                                <constraint firstAttribute="bottom" secondItem="bkr-4a-Bvi" secondAttribute="bottom" constant="10" id="L3T-j6-btZ"/>
+                                <constraint firstAttribute="trailing" secondItem="bkr-4a-Bvi" secondAttribute="trailing" constant="8" id="TsI-bj-cEf"/>
+                                <constraint firstItem="bkr-4a-Bvi" firstAttribute="top" secondItem="UGg-Jb-9W1" secondAttribute="top" constant="10" id="uFK-Am-Qec"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkTableViewCell" rowHeight="210" id="hzy-WE-YEd" customClass="DrinkTableViewCell" customModule="DrinksOrder" customModuleProvider="target">
@@ -51,9 +56,9 @@
                                                 <constraint firstAttribute="width" constant="150" id="BQF-Tb-mhG"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-f3-kPt">
-                                            <rect key="frame" x="183" y="27" width="139" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-f3-kPt">
+                                            <rect key="frame" x="183" y="27" width="139" height="25.333333333333329"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -63,7 +68,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-WH-IMo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-WH-IMo">
                                             <rect key="frame" x="183" y="92" width="132" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -79,10 +84,10 @@
                                         <constraint firstAttribute="trailing" secondItem="Z8m-z3-Lk1" secondAttribute="trailing" id="aCB-aj-9rI"/>
                                         <constraint firstAttribute="bottom" secondItem="Z8m-z3-Lk1" secondAttribute="bottom" id="cIF-4B-5Qt"/>
                                         <constraint firstItem="Z8m-z3-Lk1" firstAttribute="top" secondItem="hrc-WH-IMo" secondAttribute="bottom" constant="50" id="cJn-kP-cGG"/>
+                                        <constraint firstItem="hrc-WH-IMo" firstAttribute="top" secondItem="D2m-f3-kPt" secondAttribute="bottom" constant="39.670000000000002" id="caR-kg-dt7"/>
                                         <constraint firstItem="D2m-f3-kPt" firstAttribute="leading" secondItem="0HI-yB-YNf" secondAttribute="trailing" constant="13" id="dSm-16-5eV"/>
                                         <constraint firstItem="hrc-WH-IMo" firstAttribute="leading" secondItem="0HI-yB-YNf" secondAttribute="trailing" constant="13" id="ekO-g3-K48"/>
                                         <constraint firstItem="Z8m-z3-Lk1" firstAttribute="top" secondItem="0HI-yB-YNf" secondAttribute="bottom" constant="5" id="jdf-Mj-FIA"/>
-                                        <constraint firstItem="hrc-WH-IMo" firstAttribute="top" secondItem="D2m-f3-kPt" secondAttribute="bottom" constant="41" id="ovK-sC-J5W"/>
                                         <constraint firstItem="Z8m-z3-Lk1" firstAttribute="leading" secondItem="faI-fZ-P2q" secondAttribute="leading" constant="20" id="pjT-oL-e2a"/>
                                     </constraints>
                                 </tableViewCellContentView>
