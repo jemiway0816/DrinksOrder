@@ -9,6 +9,7 @@ import UIKit
 
 class DrinksTableViewController: UITableViewController {
 
+    @IBOutlet var drinksTableView: UITableView!
     var Drinks:[[DrinkItem]] =
     [
         [
@@ -75,8 +76,16 @@ class DrinksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
+   
+    @IBAction func headerSegmentCtl(_ sender: UISegmentedControl) {
+        
+        drinksTableView.scrollToRow(at: IndexPath(item: 0, section: sender.selectedSegmentIndex), at: UITableView.ScrollPosition.top, animated: false)
+    }
+    
+/*
     // 修改 section header 樣式
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
@@ -109,6 +118,8 @@ class DrinksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+ 
+  */
     
     @IBSegueAction func showOrder(_ coder: NSCoder) -> OrderTableViewController? {
         
