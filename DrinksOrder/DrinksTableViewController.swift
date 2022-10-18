@@ -74,15 +74,23 @@ class DrinksTableViewController: UITableViewController {
 //        ]
     ]
     
+    
+    var drinkGroup = [DrinkItem]()
+    var segmentCtlValue = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        drinkGroup = Drinks[segmentCtlValue]
+        
     }
     
-   
     @IBAction func headerSegmentCtl(_ sender: UISegmentedControl) {
         
-        drinksTableView.scrollToRow(at: IndexPath(item: 0, section: sender.selectedSegmentIndex), at: UITableView.ScrollPosition.top, animated: false)
+//        drinksTableView.scrollToRow(at: IndexPath(item: 0, section: sender.selectedSegmentIndex), at: UITableView.ScrollPosition.top, animated: false)
+        segmentCtlValue = sender.selectedSegmentIndex
+        drinkGroup = Drinks[segmentCtlValue]
+        tableView.reloadData()
     }
     
 /*
@@ -125,12 +133,20 @@ class DrinksTableViewController: UITableViewController {
         
         let controller = OrderTableViewController(coder: coder)
          
-        if let section = tableView.indexPathForSelectedRow?.section,
-           let row = tableView.indexPathForSelectedRow?.row {
+//        if let section = tableView.indexPathForSelectedRow?.section,
+//           let row = tableView.indexPathForSelectedRow?.row {
+//
+//            controller?.drink = Drinks[section][row]
+//            controller?.section = section
+//        }
+        
+   
+       if let row = tableView.indexPathForSelectedRow?.row {
             
-            controller?.drink = Drinks[section][row]
-            controller?.section = section
+            controller?.drink = drinkGroup[row]
+            controller?.section = segmentCtlValue
         }
+        
         
         return controller
     }
@@ -138,23 +154,28 @@ class DrinksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Drinks.count
+//        return Drinks.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Drinks[section].count
+//        return Drinks[section].count
+        return drinkGroup.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(DrinkTableViewCell.self)", for: indexPath) as! DrinkTableViewCell
-        let drink = Drinks[indexPath.section][indexPath.row]
+//        let drink = Drinks[indexPath.section][indexPath.row]
+        
+        let drink = drinkGroup[indexPath.row]
+        
         cell.nameLabel.text = drink.drinkName
         cell.priceLabel.text = "NT$\(drink.priceMiddle)"
         cell.decriptLabel.text = drink.shortDescription
         cell.picImageView.image = UIImage(named: drink.picture)
         cell.picImageView.layer.cornerRadius = 10
         
-        switch indexPath.section {
+        switch segmentCtlValue {
         case 0:
             cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
         case 1:
