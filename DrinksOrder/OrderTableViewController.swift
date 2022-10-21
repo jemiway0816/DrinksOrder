@@ -28,7 +28,6 @@ class OrderTableViewController: UITableViewController {
         super.viewDidLoad()
 
         picImageView.layer.cornerRadius = 10
-        
         nameLabel.text = drink.drinkName
         priceLabel.text = "NT$\(drink.priceMiddle)"
         descriLabel.text = drink.description
@@ -70,6 +69,13 @@ class OrderTableViewController: UITableViewController {
                         print("OK")
                         
                         DispatchQueue.main.async {
+                       /*
+                            let controller = UIAlertController(title: "訂單確認",
+                                    message: "已訂購 \(drink) 1 杯", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            controller.addAction(okAction)
+                            self.present(controller, animated: true , completion: nil)
+                        */
                             self.navigationController?.popViewController(animated: true)
                         }
                     }
@@ -84,8 +90,7 @@ class OrderTableViewController: UITableViewController {
         
     }
     
- 
-    
+
 
 
     /*
