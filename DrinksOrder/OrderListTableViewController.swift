@@ -9,8 +9,6 @@ import UIKit
 
 class OrderListTableViewController: UITableViewController {
 
-    var apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
-    
     var orders = [Order]()
     
     let sugar:[String] = ["正常糖","八分糖","半糖","三分糖","一分糖","無糖"]
@@ -112,7 +110,7 @@ class OrderListTableViewController: UITableViewController {
             print("刪除按鈕被按下！")
             let order = self.orders[indexPath.row]
             
-            let urlStr = "\(self.apiKey)/uuid/\(order.uuid)"
+            let urlStr = "\(apiKey)/uuid/\(order.uuid)"
             
             if let url = URL(string: urlStr) {
                 var request = URLRequest(url: url)

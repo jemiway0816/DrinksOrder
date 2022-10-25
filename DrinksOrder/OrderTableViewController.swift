@@ -9,8 +9,6 @@ import UIKit
 
 class OrderTableViewController: UITableViewController {
 
-    let apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
-    
     var drink:DrinkItem!
     
     @IBOutlet var nameLabel: UILabel!
@@ -22,6 +20,10 @@ class OrderTableViewController: UITableViewController {
     @IBOutlet var iceSegCtl: UISegmentedControl!
     @IBOutlet var pearlSegCtl: UISegmentedControl!
     
+    
+    @IBOutlet var tableViewCell_0: DrinkTableViewCell!
+    @IBOutlet var tableViewCell_1: DrinkTableViewCell!
+    
     var section = 0
     
     override func viewDidLoad() {
@@ -32,6 +34,28 @@ class OrderTableViewController: UITableViewController {
         priceLabel.text = "NT$\(drink.priceMiddle)"
         descriLabel.text = drink.description
         picImageView.image = UIImage(named: drink.picture)
+        
+        switch section {
+        case 0:
+            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
+        case 1:
+            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
+        case 2:
+            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
+        case 3:
+            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
+        case 4:
+            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
+        case 5:
+            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
+        default:
+            break
+        }
+        
+        
+        
+//        tableViewCell_0.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
+        
     }
 
     @IBAction func doneButton(_ sender: Any) {
