@@ -22,9 +22,9 @@
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-4a-Bvi">
                                     <rect key="frame" x="8" y="10" width="374" height="45"/>
                                     <segments>
-                                        <segment title="極品推薦"/>
+                                        <segment title="人氣精選"/>
                                         <segment title="醇萃系列"/>
-                                        <segment title="小農鮮乳坊"/>
+                                        <segment title="小農鮮乳"/>
                                         <segment title="古早味"/>
                                         <segment title="鮮調"/>
                                     </segments>

@@ -9,6 +9,8 @@ import UIKit
 
 public let apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
 
+// 檢查本月已使用的 request : https://sheetdb.io/usage
+
 class DrinksTableViewController: UITableViewController {
 
     @IBOutlet var drinksTableView: UITableView!
