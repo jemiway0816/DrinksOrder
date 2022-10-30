@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SF1-H8-1wy">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -313,7 +314,7 @@
         <scene sceneID="Fl4-qq-CO5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iau-Sb-yvi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="飲料" image="bag.fill.badge.questionmark" catalog="system" id="e0t-VA-9rN"/>
+                    <tabBarItem key="tabBarItem" title="飲料" image="plus.rectangle.on.folder.fill" catalog="system" id="e0t-VA-9rN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yf9-k0-3IY">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -431,7 +432,7 @@
         <scene sceneID="hhj-yr-zIU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kDY-y1-EF1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="訂單" image="character.bubble.fill" catalog="system" id="j9i-YZ-beg"/>
+                    <tabBarItem key="tabBarItem" title="訂單" image="pencil.circle.fill" catalog="system" id="j9i-YZ-beg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pf7-hT-Y9v">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -448,8 +449,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bag.fill.badge.questionmark" catalog="system" width="128" height="125"/>
-        <image name="character.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus.rectangle.on.folder.fill" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
