@@ -57,7 +57,7 @@
                                                 <constraint firstAttribute="width" constant="150" id="BQF-Tb-mhG"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-f3-kPt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-f3-kPt">
                                             <rect key="frame" x="183" y="27" width="139" height="25.333333333333329"/>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -69,7 +69,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-WH-IMo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-WH-IMo">
                                             <rect key="frame" x="183" y="92" width="132" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -79,7 +79,6 @@
                                     <constraints>
                                         <constraint firstItem="0HI-yB-YNf" firstAttribute="leading" secondItem="faI-fZ-P2q" secondAttribute="leadingMargin" id="4DI-r8-2LG"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hrc-WH-IMo" secondAttribute="trailing" constant="15" id="ASu-rE-oo7"/>
-                                        <constraint firstItem="D2m-f3-kPt" firstAttribute="top" secondItem="faI-fZ-P2q" secondAttribute="topMargin" constant="16" id="Cu6-9O-uxJ"/>
                                         <constraint firstItem="0HI-yB-YNf" firstAttribute="top" secondItem="faI-fZ-P2q" secondAttribute="topMargin" id="IB9-26-Qtv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="D2m-f3-kPt" secondAttribute="trailing" constant="8" id="TTs-B8-YPT"/>
                                         <constraint firstAttribute="trailing" secondItem="Z8m-z3-Lk1" secondAttribute="trailing" id="aCB-aj-9rI"/>
@@ -245,7 +244,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jemi" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ic-Rq-NfT">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ic-Rq-NfT">
                                                     <rect key="frame" x="111" y="37.666666666666664" width="212" height="33.999999999999993"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -359,7 +358,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTZ-am-fMp">
-                                            <rect key="frame" x="217" y="66" width="120" height="18"/>
+                                            <rect key="frame" x="212" y="66" width="125" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
