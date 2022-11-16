@@ -10,6 +10,7 @@ import UIKit
 class OrderTableViewController: UITableViewController {
 
     var drink:DrinkItem!
+    var section = 0
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var picImageView: UIImageView!
@@ -20,46 +21,36 @@ class OrderTableViewController: UITableViewController {
     @IBOutlet var iceSegCtl: UISegmentedControl!
     @IBOutlet var pearlSegCtl: UISegmentedControl!
     
-    
+    // 設定cell的背景色
     @IBOutlet var tableViewCell_0: DrinkTableViewCell!
     @IBOutlet var tableViewCell_1: DrinkTableViewCell!
-    
-    var section = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 顯示飲料資訊
         picImageView.layer.cornerRadius = 10
         nameLabel.text = drink.drinkName
         priceLabel.text = "NT$\(drink.priceMiddle)"
         descriLabel.text = drink.description
         picImageView.image = UIImage(named: drink.picture)
         
-        switch section {
-        case 0:
-            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
-        case 1:
-            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
-        case 2:
-            tableViewCell_1.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
-        case 3:
-            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
-        case 4:
-            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
-        case 5:
-            tableViewCell_1.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
-        default:
-            break
-        }
+        // 取得 drinksTableViewController
+        let navController = tabBarController?.viewControllers?[0] as? UINavigationController
+        let drinksTableViewController = navController?.viewControllers.first as? DrinksTableViewController
         
-        
-        
-//        tableViewCell_0.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
-        
+        // 設定cell的背景色
+        tableViewCell_1.backgroundColor = drinksTableViewController?.getBackgroundColor(section)
     }
 
+    
+    @IBAction func nameDidEndOnExit(_ sender: Any) {
+        print("nameDidEndOnExit")
+    }
+      
     @IBAction func doneButton(_ sender: Any) {
         
+        // 取得訂單唯一key
         let uuidStr = UUID().uuidString
         let name = orderName.text ?? ""
         let drink = nameLabel.text ?? ""
@@ -68,32 +59,42 @@ class OrderTableViewController: UITableViewController {
         let pearl = pearlSegCtl.selectedSegmentIndex
         let today = Date()
         
+        // 產生訂單
         let order = Order(uuid: uuidStr,section: self.section, orderName: name, drinkName: drink, sugar: sugar, ice: ice, pearl: pearl, orderTime: today)
 
+        // 設定sheetDB的request header，method為post
         let url = URL(string: "\(apiKey)")!
         var request = URLRequest(url: url)
         request.httpMethod = "post"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        // 產生 encoder
         let encoder = JSONEncoder()
+        
+        // 設定encoder的日期格式
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/M/d HH:mm"
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        
+        // 設定sheetDB的request body
         request.httpBody = try? encoder.encode(order)
         
+        // 發出 request
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let data {
-                
                 do {
+                    // 讀入傳回的data並解碼成dic
                     let decoder = JSONDecoder()
                     let dic = try decoder.decode([String: Int].self, from: data)
                     
+                    // 確認post成功
                     if dic["created"] == 1 {
-                        print("OK")
                         
+                        // 在主執行緒顯示UI
                         DispatchQueue.main.async {
-                       
+                            
+                            // 顯示訂單確認訊息框
                             let controller = UIAlertController(title: "訂單確認",
                                     message: "已訂購 \(drink) 1 杯", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK", style: .default) { alert in
@@ -104,72 +105,13 @@ class OrderTableViewController: UITableViewController {
                         }
                     }
                 } catch {
+                    // 解碼失敗
                     print(error)
                 }
+            } else {
+                // 無法取得data
+                print("data error")
             }
         }.resume()
     }
-    
-    @IBAction func orderNameEndExit(_ sender: Any) {
-        
-    }
-    
-
-
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

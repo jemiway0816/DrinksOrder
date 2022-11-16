@@ -70,19 +70,43 @@
 			children = (
 				DA75902D28E3CD5C00A44BFE /* AppDelegate.swift */,
 				DA75902F28E3CD5C00A44BFE /* SceneDelegate.swift */,
-				DA75904328E3D1B200A44BFE /* DrinksTableViewController.swift */,
-				DA75904528E3D2F600A44BFE /* OrderTableViewController.swift */,
-				DA75904728E3D3E200A44BFE /* OrderListTableViewController.swift */,
-				DA75904928E3D48D00A44BFE /* DrinkTableViewCell.swift */,
-				DA75904F28E3EDA800A44BFE /* OrderTableViewCell.swift */,
-				DA75904128E3D0A900A44BFE /* Drinks.swift */,
-				DA75904D28E3EBA500A44BFE /* Order.swift */,
+				DA8D60DB29249640007EA676 /* Model */,
+				DA8D60DC29249653007EA676 /* View */,
+				DA8D60DD29249662007EA676 /* Controller */,
 				DA75903328E3CD5C00A44BFE /* Main.storyboard */,
-				DA75903628E3CD5D00A44BFE /* Assets.xcassets */,
 				DA75903828E3CD5D00A44BFE /* LaunchScreen.storyboard */,
+				DA75903628E3CD5D00A44BFE /* Assets.xcassets */,
 				DA75903B28E3CD5D00A44BFE /* Info.plist */,
 			);
 			path = DrinksOrder;
+			sourceTree = "<group>";
+		};
+		DA8D60DB29249640007EA676 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA75904D28E3EBA500A44BFE /* Order.swift */,
+				DA75904128E3D0A900A44BFE /* Drinks.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA8D60DC29249653007EA676 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA75904928E3D48D00A44BFE /* DrinkTableViewCell.swift */,
+				DA75904F28E3EDA800A44BFE /* OrderTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA8D60DD29249662007EA676 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA75904328E3D1B200A44BFE /* DrinksTableViewController.swift */,
+				DA75904528E3D2F600A44BFE /* OrderTableViewController.swift */,
+				DA75904728E3D3E200A44BFE /* OrderListTableViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

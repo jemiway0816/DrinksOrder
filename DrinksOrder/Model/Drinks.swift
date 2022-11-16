@@ -7,8 +7,8 @@
 
 import Foundation
 
+// 飲料資訊
 struct DrinkItem {
-    
     var drinkName:String
     var priceMiddle:Int
     var priceBig:Int

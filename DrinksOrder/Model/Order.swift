@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 訂單資訊
 struct Order: Codable {
     let uuid:String
     let section:Int

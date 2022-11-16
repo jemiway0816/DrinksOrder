@@ -14,6 +14,8 @@ public let apiKey = "https://sheetdb.io/api/v1/o8bn2eh4kry27"
 class DrinksTableViewController: UITableViewController {
 
     @IBOutlet var drinksTableView: UITableView!
+    
+    // 龜記手搖飲資料
     var Drinks:[[DrinkItem]] =
     [
         [
@@ -67,7 +69,7 @@ class DrinksTableViewController: UITableViewController {
             DrinkItem(drinkName: "紫葡蘆薈春", priceMiddle: 69, priceBig: 69, description: "最低一分糖，無熱飲",picture: "Tea_12",shortDescription:"最低一分糖，無熱飲")
         ]
         
-//        [
+//        ,[
 //            DrinkItem(drinkName: "黑木耳鮮乳", priceMiddle: 65, priceBig: 65, description: "",picture: "Tea_13",shortDescription:""),
 //            DrinkItem(drinkName: "手作薑茶", priceMiddle: 45, priceBig: 45, description: "",picture: "Tea_13",shortDescription:""),
 //            DrinkItem(drinkName: "桂圓紅棗茶", priceMiddle: 55, priceBig: 55, description: "",picture: "Tea_13",shortDescription:""),
@@ -78,171 +80,87 @@ class DrinksTableViewController: UITableViewController {
 //        ]
     ]
     
-    
     var drinkGroup = [DrinkItem]()
     var segmentCtlValue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 顯示第0頁飲料資訊
         drinkGroup = Drinks[segmentCtlValue]
-        
     }
     
     @IBAction func headerSegmentCtl(_ sender: UISegmentedControl) {
         
-//        drinksTableView.scrollToRow(at: IndexPath(item: 0, section: sender.selectedSegmentIndex), at: UITableView.ScrollPosition.top, animated: false)
+        // 頁面切換
         segmentCtlValue = sender.selectedSegmentIndex
         drinkGroup = Drinks[segmentCtlValue]
         tableView.reloadData()
     }
     
-/*
-    // 修改 section header 樣式
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        let label = UILabel()
-        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
-        label.font = .systemFont(ofSize: 32)
-        label.textColor = .black
-
-        switch section {
-        case 0:
-            label.text = "極品推薦"
-        case 1:
-            label.text = "醇萃系列"
-        case 2:
-            label.text = "小農鮮乳坊"
-        case 3:
-            label.text = "古早味"
-        case 4:
-            label.text = "鮮調"
-        case 5:
-            label.text = "冬季限定"
-        default:
-            break
-        }
-        headerView.addSubview(label)
-        return headerView
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
- 
-  */
-    
     @IBSegueAction func showOrder(_ coder: NSCoder) -> OrderTableViewController? {
         
         let controller = OrderTableViewController(coder: coder)
-         
-//        if let section = tableView.indexPathForSelectedRow?.section,
-//           let row = tableView.indexPathForSelectedRow?.row {
-//
-//            controller?.drink = Drinks[section][row]
-//            controller?.section = section
-//        }
         
-   
-       if let row = tableView.indexPathForSelectedRow?.row {
+        // 將點選的飲料資料傳入訂單畫面
+        if let row = tableView.indexPathForSelectedRow?.row {
             
             controller?.drink = drinkGroup[row]
             controller?.section = segmentCtlValue
         }
-        
-        
         return controller
     }
+    
+    func getBackgroundColor(_ index:Int) -> UIColor {
+        
+        var myColor:UIColor!
+        switch index {
+        case 0:
+            myColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
+        case 1:
+            myColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
+        case 2:
+            myColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
+        case 3:
+            myColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
+        case 4:
+            myColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
+        case 5:
+            myColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
+        default:
+            myColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
+            break
+        }
+        return myColor
+    }
+    
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        return Drinks.count
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return Drinks[section].count
         return drinkGroup.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // 取得要顯示的cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(DrinkTableViewCell.self)", for: indexPath) as! DrinkTableViewCell
-//        let drink = Drinks[indexPath.section][indexPath.row]
-        
+
+        // 準備tableview cell顯示資料
         let drink = drinkGroup[indexPath.row]
-        
         cell.nameLabel.text = drink.drinkName
         cell.priceLabel.text = "NT$\(drink.priceMiddle)"
         cell.decriptLabel.text = drink.shortDescription
         cell.picImageView.image = UIImage(named: drink.picture)
         cell.picImageView.layer.cornerRadius = 10
         
-        switch segmentCtlValue {
-        case 0:
-            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
-        case 1:
-            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
-        case 2:
-            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
-        case 3:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
-        case 4:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
-        case 5:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
-        default:
-            break
-        }
-        
+        // 切換顏色
+        cell.backgroundColor = getBackgroundColor(segmentCtlValue)
+
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

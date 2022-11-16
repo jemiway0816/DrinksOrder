@@ -23,33 +23,40 @@ class OrderListTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // 讀取全部訂單資訊
         fetch()
     }
     
     func fetch() {
-        
+        // 取得全部訂單資訊的網址
         let url = URL(string: "\(apiKey)?cast_numbers=section,sugar,ice,pearl")!
         
+        // 執行url
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let data {
-                
                 do {
+                    // 產生decoder
                     let decoder = JSONDecoder()
+                    
+                    // 設定日期格式到decoder
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy/M/d HH:mm"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    
+                    // 解碼data後存進order訂單資料陣列
                     self.orders = try decoder.decode([Order].self, from: data)
                     
+                    // 重新顯示tableView
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                    
                 } catch {
-                    print("--------> \(error)")
-//                    print(error)
+                    // 解碼失敗
+                    print(error)
                 }
             } else {
+                // 無傳回data
                 print("no data ")
             }
         }.resume()
@@ -66,36 +73,32 @@ class OrderListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // 取得要顯示的cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(OrderTableViewCell.self)", for: indexPath) as! OrderTableViewCell
 
+        // 準備tableview cell顯示資料
         let order = orders[indexPath.row]
         cell.idLabel.text = String(indexPath.row+1)
         cell.orderNameLabel.text = order.orderName
         cell.drinkNameLabel.text = order.drinkName
         cell.sugarLabel.text = sugar[order.sugar]+ice[order.ice]
+        
+        // 是否有加珍珠
         if order.pearl != 0 {
             cell.pearlLabel.text = "加\(pearl[order.pearl])"
         } else {
             cell.pearlLabel.text = ""
         }
         
-        switch order.section {
-        case 0:
-            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 0.3)
-        case 1:
-            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 0.3)
-        case 2:
-            cell.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.3)
-        case 3:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.3)
-        case 4:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 0.3)
-        case 5:
-            cell.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.3)
-        default:
-            break
-        }
-        
+        // 取得 drinksTableViewController
+        let navController = tabBarController?.viewControllers?[0] as? UINavigationController
+        let drinksTableViewController = navController?.viewControllers.first as? DrinksTableViewController
+   
+        // 改變背景色
+        cell.backgroundColor = drinksTableViewController?.getBackgroundColor(order.section)
+
+        // 準備顯示的日期格式
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/M/d HH:mm"
         cell.dateLabel.text = dateFormatter.string(from: order.orderTime)
@@ -105,22 +108,29 @@ class OrderListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
+        // 準備刪除按鈕
         let buttonDelete = UIContextualAction(style: .normal, title: "刪除") { action, view, complete
             in
             print("刪除按鈕被按下！")
             let order = self.orders[indexPath.row]
             
+            // 刪除的url，填入要刪除飲料的唯一key
             let urlStr = "\(apiKey)/uuid/\(order.uuid)"
             
             if let url = URL(string: urlStr) {
+                
+                // 依url產生request，並設定method為delete
                 var request = URLRequest(url: url)
                 request.httpMethod = "delete"
                 
+                // 發出request
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     
+                    // 讀取並顯示response statusCode
                     if let response = response as? HTTPURLResponse {
                         print(response.statusCode)
                         
+                        // 重新讀取全部訂單資訊並刷新tableView
                         DispatchQueue.main.async {
                             self.fetch()
                             self.tableView.reloadData()
@@ -130,56 +140,10 @@ class OrderListTableViewController: UITableViewController {
             }
         }
         
+        // 設定delete按鈕
         buttonDelete.backgroundColor = .systemRed
         let config = UISwipeActionsConfiguration(actions: [buttonDelete])
         config.performsFirstActionWithFullSwipe = false
         return config
     }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
